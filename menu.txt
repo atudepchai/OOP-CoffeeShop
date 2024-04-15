@@ -1,0 +1,35 @@
+Ca phe den|15000|10
+Ca phe sua|20000|10
+Ca cao|15000|10
+Bac xiu|15000|10
+Tra lipton|15000|10
+Tra dao|15000|10
+Tra bac ha|15000|10
+Tra dau|15000|10
+Tra hoa cuc|15000|10
+Greentea blend|25000|10
+Apple pie|30000|10
+Kiwi ninja|40000|10
+Blueberry|50000|10
+Aloe vera|35000|10
+Graspberry|45000|10
+Tiramisu|55000|10
+Nuoc ep thom|15000|10
+Nuoc ep buoi|15000|10
+Nuoc ep ca rot|15000|10
+Nuoc ep chanh|15000|10
+Nuoc ep dua hau|15000|10
+Chanh tuoi|15000|10
+Sinh to dau|25000|10
+Sinh to dua|25000|10
+Sinh to bo|25000|10
+Sinh to ca rot|25000|10
+Sinh to sapo|35000|10
+Sinh to xoai|25000|10
+Yaout da|20000|10
+Yaout dau|25000|10
+Yaout trai cay|35000|10
+Yaout viet quat|35000|10
+Yaout ca phe|25000|10
+Yaout xoai|25000|10
+
