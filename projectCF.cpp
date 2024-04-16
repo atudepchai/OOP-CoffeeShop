@@ -5,6 +5,7 @@
 #include <thread>
 #include <windows.h>
 #include <iomanip>
+
 using namespace std;
 
 struct FoodItem {
@@ -210,9 +211,9 @@ int calculateTotalPrice() {
     int totalPrice = 0;
     for (const FoodItem& item : managerMenu) {
         totalPrice += item.price * item.quantityOrdered;
-
+        
+         
     }
-
     return totalPrice;
 }
 
@@ -230,7 +231,9 @@ void order() {
         managerMenu[orderIndex - 1].quantity -= quantity;
         managerMenu[orderIndex - 1].quantityOrdered += quantity;
         int totalPrice = calculateTotalPrice();
-        std::cout << "Total Price: " << totalPrice << " vnd" << std::endl;
+        std::cout << "Total price: " << totalPrice << "vnd" << std::endl;
+
+
 
 
     } else {
@@ -368,6 +371,19 @@ void deleteUser() {
         cout << "User not found." << endl;
     }
 }
+void setBackgroundColor(int color) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
+    GetConsoleScreenBufferInfo(hConsole, &consoleInfo);
+    WORD currentAttributes = consoleInfo.wAttributes;
+    int backgroundColor = color << 4;
+    SetConsoleTextAttribute(hConsole, currentAttributes | backgroundColor);
+}
+
+void resetColor() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+}
 
   void login() {
     string filename;
@@ -416,22 +432,27 @@ User user;
 
 
     if (userRole == "manager") {
-        cout << "Login successful." << endl;
-        cout << "Welcome, manager!" << endl;
+        cout << "\t\tLogin successful." << endl;
+        cout << "\t\tWelcome, manager!" << endl;
         int choice;
 
         do {
 
-            cout << "1. Display Manager Menu" << endl;
-            cout << "2. Input Menu" << endl;
-            cout << "3. Save Menu" << endl;
-            cout << "4. Add Food" << endl;
-            cout << "5. Delete Food" << endl;
-            cout << "6. Modify Food" << endl;
-            cout << "7. Display User List" << endl;
-            cout << "8. Delete User" << endl;
-            cout << "9. Load Menu from File" << endl;
-            cout << "0. Exit" << endl;
+    std::cout << "\t\t╔══════════════════════════╗" << std::endl;
+    std::cout << "\t\t║        MENU              ║" << std::endl;
+    std::cout << "\t\t╠══════════════════════════╣" << std::endl;
+    std::cout << "\t\t║  1. Display Manager Menu ║" << std::endl;
+    std::cout << "\t\t║  2. Input Menu           ║" << std::endl;
+    std::cout << "\t\t║  3. Save Menu            ║" << std::endl;
+    std::cout << "\t\t║  4. Add Food             ║" << std::endl;
+    std::cout << "\t\t║  5. Delete Food          ║" << std::endl;
+    std::cout << "\t\t║  6. Modify Food          ║" << std::endl;
+    std::cout << "\t\t║  7. Display User List    ║" << std::endl;
+    std::cout << "\t\t║  8. Delete User          ║" << std::endl;
+    std::cout << "\t\t║  9. Load Menu from File  ║" << std::endl;
+    std::cout << "\t\t║  0. Exit                 ║" << std::endl;
+    std::cout << "\t\t╚══════════════════════════╝" << std::endl;
+
             cout << "Enter your choice: ";
             cin >> choice;
                 switch (choice) {
@@ -488,20 +509,22 @@ User user;
             } while (choice != 0);
             // Menu and user management functions
         } else if (userRole == "staff") {
-            cout << "Login successful." << endl;
-            cout << "Welcome, staff!" << endl;
+            cout << "\t\tLogin successful." << endl;
+            cout << "\t\tWelcome, staff!" << endl;
             // Functions for staff members
             int choice;
             do {
 
-               cout << "1. Load Menu from File" << endl;
-                cout << "2. Display Staff Menu" << endl;
-                cout    << "3. Order Food" << endl;
-                cout << "4. Total" << endl;
+    std::cout << "\t\t╔══════════════════════════╗" << std::endl;
+    std::cout << "\t\t║         MENU             ║" << std::endl;
+    std::cout << "\t\t╠══════════════════════════╣" << std::endl;
+    std::cout << "\t\t║  1. Load Menu from File  ║" << std::endl;
+    std::cout << "\t\t║  2. Display Staff Menu   ║" << std::endl;
+    std::cout << "\t\t║  3. Order Food           ║" << std::endl;
+    std::cout << "\t\t║  4. Total                ║" << std::endl;
+    std::cout << "\t\t║  0. Exit                 ║" << std::endl;
+    std::cout << "\t\t╚══════════════════════════╝" << std::endl;
 
-
-
-                cout << "0. Exit" << endl;
                 cout << "Enter your choice: ";
                 cin >> choice;
 
@@ -544,11 +567,12 @@ User user;
 
 
        int main() {
+
     // Các phần khác của chương trình
 Restaurant restaurant;
     cout << setfill('-') << setw(74) << "-" << endl;
-    cout << "|                     Welcome to the restaurant!                     |" << endl;
-    cout << "|               Sign up to use the restaurant system                 |" << endl;
+    cout << "|                     Welcome to Anh Tu CoffeeShop!                     |" << endl;
+    cout << "|               Sign up to use the CoffeeShop system                 |" << endl;
     cout << setfill('-') << setw(74) << "-" << endl;
 cout.flush(); // Đảm bảo thông báo xuất hiện ngay lập tức
 
@@ -560,6 +584,7 @@ cout.flush(); // Đảm bảo thông báo xuất hiện ngay lập tức
     }
     cout << "Completed!" << endl;
     int signUpChoice;
+
     cout << "\t\t Do you want to sign up ?" << endl;
     cout << setfill('*') << setw(60) << "*" << endl;
     cout << "*                  Sign up Options                   *" << endl;
@@ -567,6 +592,7 @@ cout.flush(); // Đảm bảo thông báo xuất hiện ngay lập tức
     cout << "|  1. Yes                                          |" << endl;
     cout << "|  0. No                                           |" << endl;
     cout << setfill('-') << setw(60) << "-" << endl;
+
     cin >> signUpChoice;
     if (signUpChoice == 0) {
         cout << "\t\t Skipping sign up..." << endl;
@@ -585,6 +611,7 @@ cout.flush(); // Đảm bảo thông báo xuất hiện ngay lập tức
         restaurant.addUser();
     }
 
+
     cout << "\t\t Do you want to login ?" << endl;
     cout << setfill('-') << setw(60) << "-" << endl;
     cout << "|                   Login Options                      |" << endl;
@@ -592,6 +619,7 @@ cout.flush(); // Đảm bảo thông báo xuất hiện ngay lập tức
     cout << "|  yes (click 1)                                       |" << endl;
     cout << "|  no  (click 0)                                       |" << endl;
     cout << setfill('-') << setw(60) << "-" << endl;
+
     int loginChoice;
     cin >> loginChoice;
     if (loginChoice == 0) {
