@@ -789,6 +789,7 @@ User user;
     std::cout << "\t\t║  13. Order table         ║" << std::endl;
     std::cout << "\t\t║  14. Print Bill          ║" << std::endl;
     std::cout << "\t\t║  15. Payment             ║" << std::endl;
+    std::cout << "\t\t║  16. Reset               ║" << std::endl;
     std::cout << "\t\t║  0. Exit                 ║" << std::endl;
     std::cout << "\t\t╚══════════════════════════╝" << std::endl;
 
@@ -862,6 +863,9 @@ User user;
                     case 15:
                         restaurant.Payment();
                         break;
+                    case 16:
+                        restaurant.reset();
+                        break;
                     case 0:
                         cout << "Exiting the program." << endl;
                         break;
@@ -933,7 +937,7 @@ User user;
                         case 9:
                         restaurant.reset();
                         break;
-                        
+
                         
 
 
